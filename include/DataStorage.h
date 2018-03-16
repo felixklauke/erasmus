@@ -15,9 +15,13 @@ public:
 
     virtual ~DataStorage();
 
-    void ReadBlock(uint position, uint length, char buffer[]);
+    void ReadBlock(uint position, uint length, char *buffer);
 
-    void WriteBlock(uint position, uint length, char buffer[]);
+    void WriteBlock(uint position, uint length, char *buffer);
+
+    void WriteBlockAndFlushOutput(uint position, uint length, char *buffer);
+
+    void FlushOutput();
 
 private:
     std::ifstream *input;

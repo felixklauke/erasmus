@@ -15,14 +15,22 @@ DataStorage::~DataStorage() {
     delete(output);
 }
 
-void DataStorage::ReadBlock(uint position, uint length, char buffer[]) {
+void DataStorage::ReadBlock(uint position, uint length, char *buffer) {
     input->seekg(position);
     input->read(buffer, length);
 }
 
-void DataStorage::WriteBlock(uint position, uint length, char buffer[]) {
+void DataStorage::WriteBlock(uint position, uint length, char *buffer) {
     output->seekp(position);
     output->write(buffer, length);
+}
+
+void DataStorage::WriteBlockAndFlushOutput(uint position, uint length, char *buffer) {
+    WriteBlock(position, length, buffer);
+    FlushOutput();
+}
+
+void DataStorage::FlushOutput() {
     output->flush();
 }
 

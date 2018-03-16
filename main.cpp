@@ -2,11 +2,19 @@
 #include <DataStorage.h>
 
 int main() {
-    auto dataStorage = DataStorage("test.txt");
-    dataStorage.WriteBlock(0, 12, const_cast<char *>("Felix Klauke"));
+    auto dataStorage = DataStorage("test.bin");
 
-    char buffer[12];
-    dataStorage.ReadBlock(0, 12, buffer);
+    std::string name = "Felix";
+    char bytes[name.length()];
+    strncpy(bytes, name.c_str(), sizeof(bytes));
 
-    printf(buffer);
+    printf("Written: %s\n", bytes);
+
+    dataStorage.WriteBlockAndFlushOutput(0, sizeof(bytes), bytes);
+
+    char result[name.length()];
+
+    dataStorage.ReadBlock(0, sizeof(result), result);
+
+    printf("Read: %s\n", result);
 }
