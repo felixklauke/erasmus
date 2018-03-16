@@ -23,6 +23,7 @@ void DataStorage::ReadBlock(uint position, uint length, char buffer[]) {
 void DataStorage::WriteBlock(uint position, uint length, char buffer[]) {
     output->seekp(position);
     output->write(buffer, length);
+    output->flush();
 }
 
 
