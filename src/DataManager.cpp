@@ -8,7 +8,8 @@ DataManager::DataManager(DataStorage *dataStorage, uint blockSize) : dataStorage
 
 }
 
-DataBlock DataManager::readDataBlock(uint position) {
+
+DataBlock DataManager::ReadDataBlock(uint position) {
     uint blockPosition = blockSize * position;
     char buffer[8];
 
@@ -22,5 +23,19 @@ DataBlock DataManager::readDataBlock(uint position) {
     char dataSection[dataSectionSize];
     dataStorage->ReadBlock(blockPosition + 8, dataSectionSize, dataSection);
 
-    return DataBlock(&blockPosition, &nextBlockId, &dataSectionSize, dataSection);
+    return DataBlock(&position, &nextBlockId, &dataSectionSize, dataSection);
+}
+
+void DataManager::WriteDataBlock(DataBlock dataBlock) {
+    uint initialPosition = blockSize * *dataBlock.GetBlockId();
+
+    uint headerSize = sizeof(dataBlock.GetNextBlockId()) + sizeof(dataBlock.GetDataSectionSize());
+    char buffer[headerSize];
+    memcpy(&buffer, dataBlock.GetNextBlockId(), sizeof(dataBlock.GetNextBlockId()));
+    memcpy(&buffer[sizeof(dataBlock.GetNextBlockId()) + 1], dataBlock.GetDataSectionSize(),
+           sizeof(dataBlock.GetDataSectionSize()));
+
+    dataStorage->WriteBlock(initialPosition, headerSize, buffer);
+    dataStorage->WriteBlock(initialPosition + *dataBlock.GetDataSectionSize(), *dataBlock.GetDataSectionSize(),
+                            dataBlock.GetDataSection())
 }

@@ -10,21 +10,21 @@ class DataBlock {
 public:
     DataBlock(unsigned int *blockId, int *nextBlockId, unsigned int *dataSectionSize, char *dataSection);
 
-    unsigned int *getBlockId() const;
+    unsigned int *GetBlockId() const;
 
-    void setBlockId(unsigned int *blockId);
+    void SetBlockId(unsigned int *blockId);
 
-    int *getNextBlockId() const;
+    int *GetNextBlockId() const;
 
-    void setNextBlockId(int *nextBlockId);
+    void SetNextBlockId(int *nextBlockId);
 
-    unsigned int *getDataSectionSize() const;
+    unsigned int *GetDataSectionSize() const;
 
-    void setDataSectionSize(unsigned int *dataSectionSize);
+    void SetDataSectionSize(unsigned int *dataSectionSize);
 
-    char *getDataSection() const;
+    char *GetDataSection() const;
 
-    void setDataSection(char *dataSection);
+    void SetDataSection(char *dataSection);
 
 private:
     unsigned int *blockId;

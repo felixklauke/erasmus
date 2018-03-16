@@ -14,7 +14,9 @@ class DataManager {
 public:
     explicit DataManager(DataStorage *dataStorage, uint blockSize);
 
-    DataBlock readDataBlock(uint position);
+    DataBlock ReadDataBlock(uint position);
+
+    void WriteDataBlock(DataBlock dataBlock);
 
 private:
     DataStorage *dataStorage;
