@@ -8,7 +8,7 @@
 
 class DataBlock {
 public:
-    DataBlock(unsigned int blockId, int nextBlockId, unsigned int dataSectionSize, char dataSection);
+    DataBlock(unsigned int blockId, int nextBlockId, unsigned int dataSectionSize, char *dataSection);
 
     unsigned int GetBlockId() const;
 
@@ -24,13 +24,13 @@ public:
 
     char *GetDataSection();
 
-    void SetDataSection(char dataSection);
+    void SetDataSection(char *dataSection);
 
 private:
     unsigned int blockId;
     int nextBlockId;
     unsigned int dataSectionSize;
-    char dataSection;
+    char *dataSection;
 
 };
 

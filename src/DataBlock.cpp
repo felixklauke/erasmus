@@ -4,8 +4,9 @@
 
 #include "DataBlock.h"
 
-DataBlock::DataBlock(unsigned int blockId, int nextBlockId, unsigned int dataSectionSize, char dataSection)
-        : blockId(blockId), nextBlockId(nextBlockId), dataSectionSize(dataSectionSize), dataSection(dataSection) {}
+DataBlock::DataBlock(unsigned int blockId, int nextBlockId, unsigned int dataSectionSize, char *dataSection)
+        : blockId(blockId), nextBlockId(nextBlockId), dataSectionSize(dataSectionSize), dataSection(dataSection) {
+}
 
 unsigned int DataBlock::GetBlockId() const {
     return blockId;
@@ -32,9 +33,9 @@ void DataBlock::SetDataSectionSize(unsigned int dataSectionSize) {
 }
 
 char *DataBlock::GetDataSection() {
-    return &dataSection;
+    return dataSection;
 }
 
-void DataBlock::SetDataSection(char dataSection) {
+void DataBlock::SetDataSection(char *dataSection) {
     DataBlock::dataSection = dataSection;
 }
