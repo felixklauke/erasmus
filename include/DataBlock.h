@@ -8,28 +8,28 @@
 
 class DataBlock {
 public:
-    DataBlock(unsigned int *blockId, int *nextBlockId, unsigned int *dataSectionSize, char *dataSection);
+    DataBlock(unsigned int blockId, int nextBlockId, unsigned int dataSectionSize, char *dataSection);
 
-    unsigned int *GetBlockId() const;
+    unsigned int GetBlockId() const;
 
-    void SetBlockId(unsigned int *blockId);
+    void SetBlockId(unsigned int blockId);
 
-    int *GetNextBlockId() const;
+    int *GetNextBlockId();
 
-    void SetNextBlockId(int *nextBlockId);
+    void SetNextBlockId(int nextBlockId);
 
-    unsigned int *GetDataSectionSize() const;
+    unsigned int *GetDataSectionSize();
 
-    void SetDataSectionSize(unsigned int *dataSectionSize);
+    void SetDataSectionSize(unsigned int dataSectionSize);
 
-    char *GetDataSection() const;
+    char *GetDataSection();
 
     void SetDataSection(char *dataSection);
 
 private:
-    unsigned int *blockId;
-    int *nextBlockId;
-    unsigned int *dataSectionSize;
+    unsigned int blockId;
+    int nextBlockId;
+    unsigned int dataSectionSize;
     char *dataSection;
 
 };

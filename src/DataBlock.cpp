@@ -4,34 +4,35 @@
 
 #include "DataBlock.h"
 
-DataBlock::DataBlock(unsigned int *blockId, int *nextBlockId, unsigned int *dataSectionSize, char *dataSection)
-        : blockId(blockId), nextBlockId(nextBlockId), dataSectionSize(dataSectionSize), dataSection(dataSection) {}
+DataBlock::DataBlock(unsigned int blockId, int nextBlockId, unsigned int dataSectionSize, char *dataSection)
+        : blockId(blockId), nextBlockId(nextBlockId), dataSectionSize(dataSectionSize), dataSection(dataSection) {
+}
 
-unsigned int *DataBlock::GetBlockId() const {
+unsigned int DataBlock::GetBlockId() const {
     return blockId;
 }
 
-void DataBlock::SetBlockId(unsigned int *blockId) {
+void DataBlock::SetBlockId(unsigned int blockId) {
     DataBlock::blockId = blockId;
 }
 
-int *DataBlock::GetNextBlockId() const {
-    return nextBlockId;
+int *DataBlock::GetNextBlockId() {
+    return &nextBlockId;
 }
 
-void DataBlock::SetNextBlockId(int *nextBlockId) {
+void DataBlock::SetNextBlockId(int nextBlockId) {
     DataBlock::nextBlockId = nextBlockId;
 }
 
-unsigned int *DataBlock::GetDataSectionSize() const {
-    return dataSectionSize;
+unsigned int *DataBlock::GetDataSectionSize() {
+    return &dataSectionSize;
 }
 
-void DataBlock::SetDataSectionSize(unsigned int *dataSectionSize) {
+void DataBlock::SetDataSectionSize(unsigned int dataSectionSize) {
     DataBlock::dataSectionSize = dataSectionSize;
 }
 
-char *DataBlock::GetDataSection() const {
+char *DataBlock::GetDataSection() {
     return dataSection;
 }
 
