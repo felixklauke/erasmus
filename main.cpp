@@ -12,7 +12,7 @@ int main() {
 
     printf("Written: %s\n", bytes);
 
-    DataBlock dataBlock = DataBlock(0, -1, sizeof(bytes), *bytes);
+    DataBlock dataBlock = DataBlock(0, -1, sizeof(bytes), bytes);
 
     printf("Data Block created\n");
 
