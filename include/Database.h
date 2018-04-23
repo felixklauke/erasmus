@@ -17,8 +17,15 @@ public:
 
     virtual ~Database();
 
+    char *Get(std::string key);
+
+    void Save(std::string key, char *data);
+
+    void Remove(std::string key);
+
 private:
     IndexController *indexController;
+
     DataController *dataController;
 
 };

@@ -16,3 +16,15 @@ Database::~Database() {
     delete (&dataController);
 }
 
+char *Database::Get(std::string key) {
+    return nullptr;
+}
+
+void Database::Save(std::string key, char *data) {
+
+}
+
+void Database::Remove(std::string key) {
+
+}
+
