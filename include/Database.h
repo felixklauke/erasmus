@@ -5,7 +5,7 @@
 #ifndef ERASMUS_DATABASE_H
 #define ERASMUS_DATABASE_H
 
-
+#include <boost/functional/hash.hpp>
 #include "DataStorage.h"
 #include "IndexController.h"
 #include "DataController.h"
@@ -27,6 +27,8 @@ private:
     IndexController *indexController;
 
     DataController *dataController;
+
+    boost::hash<std::string> stringHasher;
 
 };
 

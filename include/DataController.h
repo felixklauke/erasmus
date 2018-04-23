@@ -7,12 +7,14 @@
 
 
 #include "Controller.h"
+#include "IndexBlock.h"
 
 class DataController : Controller {
 
 public:
     explicit DataController(DataStorage *dataStorage);
 
+    char *ReadData(std::string key, int keyHash, IndexBlock *index);
 };
 
 

@@ -17,7 +17,10 @@ Database::~Database() {
 }
 
 char *Database::Get(std::string key) {
-    return nullptr;
+    int keyHash = static_cast<int>(stringHasher(key));
+    IndexBlock *indexBlock = indexController->GetIndex(keyHash);
+
+    return dataController->ReadData(key, keyHash, indexBlock);
 }
 
 void Database::Save(std::string key, char *data) {
