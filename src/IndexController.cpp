@@ -5,7 +5,7 @@
 #include "IndexController.h"
 
 IndexController::IndexController(DataStorage *dataStorage) : Controller(dataStorage) {
-    this->indexContainer = new std::map<int, IndexBlock>();
+    this->indexContainer = new std::map<int, IndexBlock *>();
 }
 
 IndexController::~IndexController() {
@@ -15,4 +15,8 @@ IndexController::~IndexController() {
 
 void IndexController::LoadIndices() {
 
+}
+
+IndexBlock *IndexController::GetIndex(int keyHash) {
+    return indexContainer->at(keyHash);
 }

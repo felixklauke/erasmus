@@ -13,7 +13,7 @@
 class IndexController : Controller {
 
 private:
-    std::map<int, IndexBlock> *indexContainer;
+    std::map<int, IndexBlock *> *indexContainer;
 
     virtual ~IndexController();
 
@@ -21,6 +21,8 @@ public:
     explicit IndexController(DataStorage *dataStorage);
 
     void LoadIndices();
+
+    IndexBlock *GetIndex(int keyHash);
 };
 
 
