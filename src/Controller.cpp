@@ -7,3 +7,7 @@
 Controller::Controller(DataStorage *dataStorage) : dataStorage(dataStorage) {
 
 }
+
+Controller::~Controller() {
+    delete (&dataStorage);
+}

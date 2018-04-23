@@ -13,6 +13,8 @@ class Controller {
 public:
     explicit Controller(DataStorage *dataStorage);
 
+    virtual ~Controller();
+
 protected:
     DataStorage *dataStorage;
 

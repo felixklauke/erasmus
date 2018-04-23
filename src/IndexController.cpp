@@ -5,7 +5,12 @@
 #include "IndexController.h"
 
 IndexController::IndexController(DataStorage *dataStorage) : Controller(dataStorage) {
+    this->indexContainer = new std::map<int, IndexBlock>();
+}
 
+IndexController::~IndexController() {
+    delete (&indexContainer);
+    delete (&dataStorage);
 }
 
 void IndexController::LoadIndices() {
