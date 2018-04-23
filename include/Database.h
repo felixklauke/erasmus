@@ -7,13 +7,19 @@
 
 
 #include "DataStorage.h"
+#include "IndexController.h"
+#include "DataController.h"
 
 class Database {
+
 public:
-    Database(DataStorage *dataStorage);
+    explicit Database(const std::string &fileName);
+
+    virtual ~Database();
 
 private:
-    DataStorage *dataStorage;
+    IndexController *indexController;
+    DataController *dataController;
 
 };
 
