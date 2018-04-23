@@ -7,6 +7,8 @@
 Database::Database(const std::string &fileName) {
     this->indexController = new IndexController(new DataStorage(fileName + ".data"));
     this->dataController = new DataController(new DataStorage(fileName + ".index"));
+
+    indexController->LoadIndices();
 }
 
 Database::~Database() {

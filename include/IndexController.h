@@ -13,6 +13,7 @@ class IndexController : Controller {
 public:
     explicit IndexController(DataStorage *dataStorage);
 
+    void LoadIndices();
 };
 
 

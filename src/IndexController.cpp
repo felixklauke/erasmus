@@ -7,3 +7,7 @@
 IndexController::IndexController(DataStorage *dataStorage) : Controller(dataStorage) {
 
 }
+
+void IndexController::LoadIndices() {
+
+}
