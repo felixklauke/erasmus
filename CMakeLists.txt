@@ -1,9 +1,13 @@
 cmake_minimum_required(VERSION 3.9)
 project(erasmus)
 
+# Set CMake standard version
 set(CMAKE_CXX_STANDARD 17)
 
+# Include Directories
 include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-add_executable(erasmus main.cpp src/DataStorage.cpp include/DataStorage.h src/DataManager.cpp include/DataManager.h src/DataBlock.cpp include/DataBlock.h src/Database.cpp include/Database.h src/IndexController.cpp include/IndexController.h src/DataController.cpp include/DataController.h src/Controller.cpp include/Controller.h src/IndexBlock.cpp include/IndexBlock.h src/DataRecord.cpp include/DataRecord.h)
+file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/include/*.h ${PROJECT_SOURCE_DIR}/src/*.cpp main.cpp)
+set(SOURCE_FILES ${SOURCES} include/FileSystemAccessor.h src/FileSystemAccessor.cpp include/FileSystemAccessor.h src/IndexStorage.cpp include/IndexStorage.h include/DataStorage.cpp include/DataStorage.h)
+add_executable(main.cpp ${SOURCE_FILES})
