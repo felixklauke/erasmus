@@ -5,7 +5,13 @@
 #include "FileSystemAccessor.h"
 
 FileSystemAccessor::FileSystemAccessor(std::string fileName) {
+    inputStream = new std::ifstream(fileName, std::ifstream::in);
+    outputStream = new std::ofstream(fileName, std::ofstream::out);
+}
 
+FileSystemAccessor::~FileSystemAccessor() {
+    delete (inputStream);
+    delete (outputStream);
 }
 
 void FileSystemAccessor::Read(int position, int amount, char *byteBuffer) {

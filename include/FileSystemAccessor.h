@@ -24,6 +24,11 @@ public:
     explicit FileSystemAccessor(std::string fileName);
 
     /**
+     * The destructor that should take responsibility to close and delete the streams opened by the constructor.
+     */
+    virtual ~FileSystemAccessor();
+
+    /**
      * Read the given amount of bytes beginning from the given position into the given byte array.
      *
      * @param position The position to begin reading at.
