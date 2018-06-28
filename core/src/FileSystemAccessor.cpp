@@ -2,7 +2,8 @@
 // Created by Felix Klauke on 27.06.18.
 //
 
-#include "FileSystemAccessor.h"
+#include <string>
+#include <FileSystemAccessor.h>
 
 FileSystemAccessor::FileSystemAccessor(std::string fileName) {
     inputStream = new std::ifstream(fileName, std::ifstream::in);

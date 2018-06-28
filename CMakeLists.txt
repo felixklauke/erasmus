@@ -1,13 +1,17 @@
 cmake_minimum_required(VERSION 3.9)
-project(erasmus)
+project(Erasmus)
 
 # Set CMake standard version
 set(CMAKE_CXX_STANDARD 17)
 
-# Include Directories
-include_directories(${PROJECT_SOURCE_DIR}/include)
-include_directories(${PROJECT_SOURCE_DIR}/src)
+set(SOURCE_FILES main.cpp)
+add_executable(run ${SOURCE_FILES})
 
-file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/include/*.h ${PROJECT_SOURCE_DIR}/src/*.cpp main.cpp)
-set(SOURCE_FILES ${SOURCES})
-add_executable(main.cpp ${SOURCE_FILES})
+# Include Directories
+include_directories(core)
+
+# Load sub directories
+add_subdirectory(core)
+add_subdirectory(test)
+
+target_link_libraries(run core)
