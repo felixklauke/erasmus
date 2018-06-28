@@ -9,5 +9,5 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/include/*.h ${PROJECT_SOURCE_DIR}/src/*.cpp main.cpp)
-set(SOURCE_FILES ${SOURCES} include/FileSystemAccessor.h src/FileSystemAccessor.cpp include/FileSystemAccessor.h src/IndexStorage.cpp include/IndexStorage.h include/DataStorage.cpp include/DataStorage.h)
+set(SOURCE_FILES ${SOURCES})
 add_executable(main.cpp ${SOURCE_FILES})
